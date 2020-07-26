@@ -1,0 +1,52 @@
+options:
+    docker: true
+stepdefinitions:
+- validate: &validate
+    name: Validate
+    image: node:10-alpine
+    caches:
+        - docker
+        - node
+    script:
+        - yarn
+        - CI=true yarn test
+        - yarn build
+- build: &build
+    name: Build
+    image: node:10-alpine
+    caches:
+        - docker
+        - node
+    script:
+        - echo "Building version $(./scripts/current-version.sh)"
+        - yarn
+        - yarn build
+        - docker login -u _json_key -p "$FORGE_REGISTRYKEY" https://eu.gcr.io
+        - docker build -t "eu.gcr.io/${FORGE_PROJECTID}/pwa-scanner-poc:$(./scripts/current-version.sh)" .
+        - docker push "eu.gcr.io/${FORGE_PROJECTID}/pwa-scanner-poc:$(./scripts/current-version.sh)"
+- deploy: &deploy
+    - git pull
+    - echo "Deploying version $(./scripts/current-version.sh)"
+    - echo $FORGE_KUBERNETESKEY > ~/.gcloud-api-key.json
+    - gcloud auth activate-service-account --key-file ~/.gcloud-api-key.json
+    - gcloud config set project $FORGE_PROJECTID
+    - gcloud container clusters get-credentials $GC_CLUSTER --zone=$GC_ZONE --project $FORGE_PROJECTID
+    - gcloud auth configure-docker --quiet
+    - sed -i "s|{{PROJECT_ID}}|$FORGE_PROJECTID|g" ./deploy/forge-container.yml
+    - sed -i "s|{{TAG}}|$(./scripts/current-version.sh)|g" ./deploy/forge-container.yml
+    - kubectl apply -f ./deploy/forge-container.yml
+pipelines:
+    pull-requests:
+        '**':
+            - step: *validate
+    branches:
+        development:
+            - step: *build
+            - step:
+                name: Deploy
+                deployment: staging
+                image: google/cloud-sdk:latest
+                caches:
+                    - docker
+                script: *deploy
+

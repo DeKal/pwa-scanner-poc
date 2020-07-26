@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": "1b1cfe94-ad74-4dac-b535-996dc0b9590e",
+      "firstName": "Bjorn",
+      "lastName": "Rombaut",
+      "active": true
+    },
+    {
+      "id": "a4f1050d-9cea-42aa-ad27-a3d5244f74df",
+      "firstName": "Kevin",
+      "lastName": "Verelst",
+      "active": true
+    },
+    {
+      "id": "de3ddcc7-c42a-43ec-9a01-9cf7889340d7",
+      "firstName": "Dimitri",
+      "lastName": "De Leye",
+      "active": false
+    }
+  ],
+  "products": [
+    {
+      "id": "9780201379624",
+      "name": "Apple (6 pcs)",
+      "price": 0.15,
+      "currency": "EUR"
+    },
+    {
+      "id": "9780201379631",
+      "name": "Milk (6 x 1l)",
+      "price": 0.25,
+      "currency": "EUR"
+    },
+    {
+      "id": "9780201379648",
+      "name": "Potato (250gr)",
+      "price": 0.10,
+      "currency": "EUR"
+    }
+  ]
+}

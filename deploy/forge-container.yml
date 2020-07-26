@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pwa-scanner-poc
+  labels:
+    app: pwa-scanner-poc
+spec:
+  selector:
+    matchLabels:
+      app: pwa-scanner-poc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pwa-scanner-poc
+    spec:
+      containers:
+      - name: pwa-scanner-poc
+        image: eu.gcr.io/{{PROJECT_ID}}/pwa-scanner-poc:{{TAG}}
+        readinessProbe:
+          httpGet:
+            path: /status
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          successThreshold: 1
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: '80'
+        - name: NODE_ENV
+          value: 'production'
