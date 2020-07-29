@@ -10,6 +10,7 @@ stepdefinitions:
     script:
         - yarn
         - CI=true yarn test
+        - yarn lint
         - yarn build
 - build: &build
     name: Build

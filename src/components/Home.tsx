@@ -1,8 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { ReactElement } from 'react'
+import logo from 'icons/logo.svg'
+import 'components/Home.css'
 
-function App() {
+const Home = (): ReactElement => {
   return (
     <div className="App">
       <header className="App-header">
@@ -20,7 +20,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default Home
