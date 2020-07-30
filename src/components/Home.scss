@@ -1,0 +1,14 @@
+.home-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  height: 100vh;
+
+  .logo {
+    height: 25vmin;
+    pointer-events: none;
+  }
+}

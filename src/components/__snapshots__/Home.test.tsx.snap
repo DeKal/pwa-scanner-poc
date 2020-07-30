@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a Home component correctly 1`] = `
+<div>
+  <div
+    class="home-container"
+  >
+    <div>
+      <img
+        alt="logo"
+        class="logo margin-vertical-32"
+        src="/images/logo.jpg"
+      />
+      <div
+        class="margin-32"
+      >
+        <div
+          class="f-normal margin-16"
+        >
+          Welcome to
+        </div>
+        <div
+          class="f-big bold c-grey"
+        >
+          Foodsavers
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        class="margin-vertical-32 btn btn-outline-dark btn-block btn-lg"
+        type="button"
+      >
+        New session
+      </button>
+    </div>
+  </div>
+</div>
+`;
