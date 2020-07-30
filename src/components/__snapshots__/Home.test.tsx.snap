@@ -29,6 +29,7 @@ exports[`renders a Home component correctly 1`] = `
     <div>
       <button
         class="margin-vertical-32 btn btn-outline-dark btn-block btn-lg"
+        data-test-id="btn-new-session"
         type="button"
       >
         New session

@@ -21,6 +21,7 @@ const Home = ({ history, removeUserSession }: HomeProps): ReactElement => {
       </div>
       <div>
         <Button
+          data-test-id="btn-new-session"
           className="margin-vertical-32"
           variant="outline-dark"
           size="lg"
