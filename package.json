@@ -30,7 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint '**/*.js'"
+    "lint": "eslint '**/*.tsx' '**/*.ts'",
+    "serve":  "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -56,6 +57,7 @@
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "serve": "^11.3.2"
   }
 }
