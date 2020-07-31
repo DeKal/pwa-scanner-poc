@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Home from 'containers/Home'
+import Home from 'pages/Home'
 import User from 'components/User'
 
 const App = (): ReactElement => {
