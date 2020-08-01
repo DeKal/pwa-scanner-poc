@@ -1,0 +1,1 @@
+export const REMOVE_SESSION = 'REMOVE_SESSION'

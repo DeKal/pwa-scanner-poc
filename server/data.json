@@ -4,18 +4,21 @@
       "id": "1b1cfe94-ad74-4dac-b535-996dc0b9590e",
       "firstName": "Bjorn",
       "lastName": "Rombaut",
+      "address": "1532  Rosemont Avenue",
       "active": true
     },
     {
       "id": "a4f1050d-9cea-42aa-ad27-a3d5244f74df",
       "firstName": "Kevin",
       "lastName": "Verelst",
+      "address": "1993  Courtright Street",
       "active": true
     },
     {
       "id": "de3ddcc7-c42a-43ec-9a01-9cf7889340d7",
       "firstName": "Dimitri",
       "lastName": "De Leye",
+      "address": "4923  Steele Street",
       "active": false
     }
   ],
