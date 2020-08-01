@@ -39,11 +39,7 @@ const CustomerModal = ({
             </Button>
           </div>
           <p className="c-gray d-flex justify-content-center mt-3">
-            Not you ?{' '}
-            <a href="#" onClick={handleClose}>
-              {' '}
-              Click here
-            </a>
+            Not you ? <span onClick={handleClose}> Click here</span>
           </p>
         </Modal.Body>
       </Modal>
