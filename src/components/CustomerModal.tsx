@@ -24,7 +24,7 @@ const CustomerModal = ({
         </Form.Group>
         <Form.Group>
           <Form.Label className="font-weight-bold">Status:</Form.Label>
-          <p>{status}</p>
+          <p>{status ? 'Active' : 'deactive'}</p>
         </Form.Group>
         <div className="d-flex justify-content-center mt-3">
           <Button variant="primary" className="c-black">

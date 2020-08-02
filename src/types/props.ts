@@ -10,7 +10,7 @@ export interface HomeProps {
 export interface CustomerModalProps {
   name: string
   address: string
-  status: string
+  status: boolean
   show: boolean
   handleClose?: () => void
 }

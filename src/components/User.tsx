@@ -14,7 +14,7 @@ const User = (): ReactElement => {
         handleClose={handleClose}
         name="Emiel"
         address="Ho chi minh"
-        status="active"
+        status
       />
     </>
   )
