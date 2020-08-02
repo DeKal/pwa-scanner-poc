@@ -1,26 +1,20 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import './modal.scss'
-type TProps = {
-  name: string
-  address: string
-  status: string
-  show: boolean
-  handleClose?: () => void
-}
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+import { CustomerModalProps } from 'types/props'
+
 const CustomerModal = ({
   name,
   address,
   status,
   show,
   handleClose,
-}: TProps) => {
+}: CustomerModalProps): ReactElement => {
   return (
     <>
       <Modal show={show} centered>
         <Modal.Body id="modal-body">
-          <h4 className="text-center">Wellcome back!</h4>
+          <h4 className="text-center">Wellcome back</h4>
           <Form.Group>
             <Form.Label className="font-weight-bold">Name:</Form.Label>
             <p>{name}</p>
@@ -39,7 +33,7 @@ const CustomerModal = ({
             </Button>
           </div>
           <p className="c-gray d-flex justify-content-center mt-3">
-            Not you ? <span onClick={handleClose}> Click here</span>
+            Not you? <span onClick={handleClose}> Click here</span>
           </p>
         </Modal.Body>
       </Modal>
