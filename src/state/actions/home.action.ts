@@ -1,7 +1,7 @@
 import { REMOVE_SESSION } from './actionTypes'
-import { Action } from 'types/state'
+import { ActionType } from 'types/state'
 
-export const removeUserSession = (): Action => {
+export const removeUserSession = (): ActionType => {
   return {
     type: REMOVE_SESSION,
   }

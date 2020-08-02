@@ -7,7 +7,7 @@ const appReducer = combineReducers({
   user: userReducer,
 })
 
-const rootReducer = (state: RootState, action: Action): RootState => {
+const rootReducer = (state: RootState, action: Action<null>): RootState => {
   if (action.type === REMOVE_SESSION) {
     state = undefined
   }

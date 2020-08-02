@@ -1,3 +1,5 @@
+import { User } from './user'
+
 interface History {
   push: (string) => void
 }
@@ -13,4 +15,14 @@ export interface CustomerModalProps {
   status: boolean
   show: boolean
   handleClose?: () => void
+}
+
+export interface QrScannerProps {
+  mode: string
+  setQrCode: (string) => void
+}
+
+export interface UserProps {
+  user: User
+  fetchUser: (string) => void
 }

@@ -13,7 +13,7 @@ const CustomerModal = ({
   return (
     <Modal show={show} centered>
       <Modal.Body>
-        <h4 className="text-center">Wellcome back</h4>
+        <h4 className="text-center">Welcome back</h4>
         <Form.Group>
           <Form.Label className="font-weight-bold">Name:</Form.Label>
           <p>{name}</p>
@@ -32,7 +32,7 @@ const CustomerModal = ({
           </Button>
         </div>
         <p className="c-gray d-flex justify-content-center mt-3">
-          Not you? <span onClick={handleClose}> Click here</span>
+          Not you? <span onClick={handleClose}>&nbsp;Click here</span>
         </p>
       </Modal.Body>
     </Modal>
