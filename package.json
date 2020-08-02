@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint '**/*.tsx' '**/*.ts'",
+    "lint": "eslint \"**/*.tsx\" \"**/*.ts\"",
     "serve":  "serve -s build"
   },
   "eslintConfig": {

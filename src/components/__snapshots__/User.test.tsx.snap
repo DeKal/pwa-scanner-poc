@@ -2,8 +2,11 @@
 
 exports[`renders a User component correctly 1`] = `
 <div>
-  <div>
-    User page
-  </div>
+  <button
+    class="btn btn-primary"
+    type="button"
+  >
+    Custom Width Modal
+  </button>
 </div>
 `;
