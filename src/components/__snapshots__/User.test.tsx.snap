@@ -21,7 +21,7 @@ exports[`renders a User component correctly 1`] = `
     <div
       class="mockCustomerModal"
     >
-      {"show":false,"name":"John Cena","address":"My address","status":"active"}
+      {"show":false,"name":"John Cena","address":"My address","status":true}
     </div>
   </div>
 </div>

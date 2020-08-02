@@ -3,10 +3,11 @@ import { withRouter } from 'react-router'
 
 import User from 'components/User'
 import { fetchUser } from 'state/actions/user.action'
-import { getUser } from 'state/selectors/user.selector'
+import { getUser, getFetchUserStatus } from 'state/selectors/user.selector'
 
 const mapStateToProps = (state) => ({
   user: getUser(state),
+  fetchUserStatus: getFetchUserStatus(state),
 })
 const mapDispatchToProps = (dispatch) => ({
   fetchUser: (userId) => dispatch(fetchUser(userId)),

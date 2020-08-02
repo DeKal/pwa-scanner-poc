@@ -16,4 +16,5 @@ export interface RootState {
 
 export interface UserState {
   currentUser: User
+  fetchUserStatus: string
 }

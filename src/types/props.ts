@@ -24,5 +24,6 @@ export interface QrScannerProps {
 
 export interface UserProps {
   user: User
+  fetchUserStatus: string
   fetchUser: (string) => void
 }
