@@ -41,7 +41,7 @@ const User = ({
 export default User
 User.defaultProps = {
   user: {},
-  fetchUserStatus: fetchStatuses.DEFAULT,
+  fetchUserStatus: null,
   fetchUser: () => {},
 }
 User.propTypes = {

@@ -1,5 +1,4 @@
 export const fetchStatuses = {
-  DEFAULT: 'DEFAULT',
   SUCCESS: 'SUCCESS',
   ERROR: 'ERROR',
   REQUEST: 'REQUEST',

@@ -9,8 +9,9 @@ const mapStateToProps = (state) => ({
   user: getUser(state),
   fetchUserStatus: getFetchUserStatus(state),
 })
-const mapDispatchToProps = (dispatch) => ({
-  fetchUser: (userId) => dispatch(fetchUser(userId)),
-})
+
+const mapDispatchToProps = {
+  fetchUser,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(User))

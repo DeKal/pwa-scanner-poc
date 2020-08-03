@@ -1,8 +1,12 @@
 import { UserState } from 'types/state'
-import { Action } from 'types/state'
-import { User } from 'types/user'
-import { FETCH_USER } from 'state/actions/actionTypes'
-import { fetchStatuses, toRequest, toError, toSuccess } from 'utils/state'
+import { fetchStatuses } from 'utils/state'
+
+import { handleActions } from 'redux-actions'
+import {
+  fetchUserRequest,
+  fetchUserSuccess,
+  fetchUserError,
+} from 'state/actions/user.action'
 
 const initialState: UserState = {
   currentUser: {
@@ -12,31 +16,24 @@ const initialState: UserState = {
     address: '',
     active: false,
   },
-  fetchUserStatus: fetchStatuses.DEFAULT,
+  fetchUserStatus: null,
 }
 
-export const userReducer = (
-  state = initialState,
-  action: Action<User>
-): UserState => {
-  switch (action.type) {
-    case toRequest(FETCH_USER):
-      return {
-        ...state,
-        fetchUserStatus: fetchStatuses.REQUEST,
-      }
-    case toSuccess(FETCH_USER):
-      return {
-        ...state,
-        fetchUserStatus: fetchStatuses.SUCCESS,
-        currentUser: action.payload,
-      }
-    case toError(FETCH_USER):
-      return {
-        ...state,
-        fetchUserStatus: fetchStatuses.ERROR,
-      }
-    default:
-      return state
-  }
-}
+export const userReducer = handleActions(
+  {
+    [fetchUserRequest]: (state) => ({
+      ...state,
+      fetchUserStatus: fetchStatuses.REQUEST,
+    }),
+    [fetchUserSuccess]: (state, action) => ({
+      ...state,
+      fetchUserStatus: fetchStatuses.SUCCESS,
+      currentUser: action.payload,
+    }),
+    [fetchUserError]: (state) => ({
+      ...state,
+      fetchUserStatus: fetchStatuses.ERROR,
+    }),
+  },
+  initialState
+)
