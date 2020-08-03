@@ -15,7 +15,7 @@ const Home = ({ history, removeUserSession }: HomeProps): ReactElement => {
           <h1 className="font-weight-bold text-dark">Foodsavers</h1>
         </div>
       </div>
-      <div>
+      <div className="mb-4">
         <Button
           data-test-id="btn-new-session"
           className="mt-5 mb-5"

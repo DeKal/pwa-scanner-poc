@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from 'pages/Home'
-import User from 'components/User'
+import User from 'pages/User'
 
 const App = (): ReactElement => {
   return (

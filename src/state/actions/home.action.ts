@@ -1,8 +1,4 @@
 import { REMOVE_SESSION } from './actionTypes'
-import { Action } from 'types/state'
+import { createAction } from 'redux-actions'
 
-export const removeUserSession = (): Action => {
-  return {
-    type: REMOVE_SESSION,
-  }
-}
+export const removeUserSession = createAction(REMOVE_SESSION)

@@ -2,11 +2,27 @@
 
 exports[`renders a User component correctly 1`] = `
 <div>
-  <button
-    class="btn btn-primary"
-    type="button"
-  >
-    Custom Width Modal
-  </button>
+  <div>
+    <h2
+      class="font-weight-bold text-dark text-center mt-3"
+    >
+      Foodsavers
+    </h2>
+    <h5
+      class="text-center mt-3 mb-3 pl-3 pr-3"
+    >
+      Scan the QR code of the product for adding to cart
+    </h5>
+    <div
+      class="mockQrScanner"
+    >
+      {"mode":"environment"}
+    </div>
+    <div
+      class="mockCustomerModal"
+    >
+      {"show":false,"name":"John Cena","address":"My address","status":true}
+    </div>
+  </div>
 </div>
 `;
