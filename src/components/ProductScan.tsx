@@ -1,13 +1,21 @@
 import React, { ReactElement, useState } from 'react'
-import BarcodeScan from './BarcodeScan'
+import BarcodeScanner from './BarcodeScanner'
 import PropTypes from 'prop-types'
 import { ProductProps } from 'types/props'
 import './productScan.scss'
-const ProductScan = ({ fetchProduct }: ProductProps): ReactElement => {
-  const [results, setResult] = useState([])
+import AddProductModal from './AddProductModal'
+import { fetchStatuses } from 'utils/state'
+const ProductScan = ({
+  fetchProduct,
+  currentProduct,
+  fetchProductStatus,
+  addToCart,
+}: ProductProps): ReactElement => {
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
   const _onDetected = (result) => {
-    setResult(results.concat([result]))
     if (result) {
+      setShow(true)
       fetchProduct(result.codeResult.code)
     }
   }
@@ -16,7 +24,7 @@ const ProductScan = ({ fetchProduct }: ProductProps): ReactElement => {
       <div className="products text-center">
         <h1>Food Saver</h1>
         <p>Scan the barcode of each product</p>
-        <BarcodeScan onDetected={_onDetected} />
+        <BarcodeScanner onDetected={_onDetected} />
         <div className="button__group text-right">
           <button type="button" className="btn btn-outline-dark">
             {' '}
@@ -26,14 +34,22 @@ const ProductScan = ({ fetchProduct }: ProductProps): ReactElement => {
             Cart 2
           </button>
         </div>
+        <AddProductModal
+          show={show && fetchProductStatus === fetchStatuses.SUCCESS}
+          handleClose={handleClose}
+          addToCart={addToCart}
+          product={currentProduct}
+        />
       </div>
     </div>
   )
 }
 export default ProductScan
 ProductScan.defaultProps = {
+  currentProduct: {},
   fetchProduct: () => {},
 }
 ProductScan.propTypes = {
+  currentProduct: PropTypes.object,
   fetchProduct: PropTypes.func,
 }

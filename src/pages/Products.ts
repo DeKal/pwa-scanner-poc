@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { fetchProduct } from 'state/actions/products.action'
+import { fetchProduct, addToCart } from 'state/actions/product.action'
 import {
   getProduct,
   getFetchProductStatus,
@@ -8,12 +8,13 @@ import {
 import ProductScan from 'components/ProductScan'
 
 const mapStateToProps = (state) => ({
-  product: getProduct(state),
+  currentProduct: getProduct(state),
   fetchProductStatus: getFetchProductStatus(state),
 })
 
 const mapDispatchToProps = {
   fetchProduct,
+  addToCart,
 }
 
 export default connect(

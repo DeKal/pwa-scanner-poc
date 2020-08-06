@@ -1,13 +1,13 @@
 import { ProductState } from 'types/state'
 import { handleActions } from 'redux-actions'
-import { addToCart } from 'state/actions/product.action'
 import { ProductItem } from 'types/product'
 import { fetchStatuses } from 'utils/state'
 import {
   fetchProductRequest,
   fetchProductSuccess,
   fetchProductError,
-} from 'state/actions/products.action'
+  addToCart,
+} from 'state/actions/product.action'
 
 const initialState: ProductState = {
   products: {},
@@ -54,7 +54,7 @@ export const productReducer = handleActions(
     [fetchProductSuccess]: (state, action) => ({
       ...state,
       fetchProductStatus: fetchStatuses.SUCCESS,
-      currentUser: action.payload,
+      currentProduct: action.payload,
     }),
     [fetchProductError]: (state) => ({
       ...state,

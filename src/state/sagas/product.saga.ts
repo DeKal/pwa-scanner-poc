@@ -5,7 +5,7 @@ import {
   fetchProductRequest,
   fetchProductSuccess,
   fetchProductError,
-} from 'state/actions/products.action'
+} from 'state/actions/product.action'
 
 function* fetchProductEffect(action) {
   try {

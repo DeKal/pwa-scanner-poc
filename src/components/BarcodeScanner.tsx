@@ -1,7 +1,8 @@
 import React, { ReactElement, useEffect } from 'react'
 import Quagga from 'quagga'
 import PropTypes from 'prop-types'
-const BarcodeScan = ({ onDetected }): ReactElement => {
+import { ProductScanProps } from 'types/props'
+const BarcodeScanner = ({ onDetected }: ProductScanProps): ReactElement => {
   useEffect(() => {
     Quagga.init(
       {
@@ -25,25 +26,22 @@ const BarcodeScan = ({ onDetected }): ReactElement => {
       },
       function (err) {
         if (err) {
-          return console.log(err)
+          return
         }
         Quagga.start()
       }
     )
-    Quagga.onDetected(_onDetected)
+    Quagga.onDetected(onDetected)
     return () => {
-      Quagga.offDetected(_onDetected)
+      Quagga.offDetected(onDetected)
     }
-  }, [])
-  const _onDetected = (result) => {
-    onDetected(result)
-  }
+  }, [onDetected])
   return <div id="interactive" className="viewport" />
 }
-export default BarcodeScan
-BarcodeScan.defaultProps = {
+export default BarcodeScanner
+BarcodeScanner.defaultProps = {
   onDetected: () => {},
 }
-BarcodeScan.propTypes = {
+BarcodeScanner.propTypes = {
   onDetected: PropTypes.func,
 }
