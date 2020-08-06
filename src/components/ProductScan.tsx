@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from 'react'
 import BarcodeScan from './BarcodeScan'
 import PropTypes from 'prop-types'
 import { ProductProps } from 'types/props'
-import FontAwesome from 'react-fontawesome'
 import './productScan.scss'
 const ProductScan = ({ fetchProduct }: ProductProps): ReactElement => {
   const [results, setResult] = useState([])
