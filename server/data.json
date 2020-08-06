@@ -25,19 +25,22 @@
   "products": [
     {
       "id": "9780201379624",
-      "name": "Apple (6 pcs)",
+      "name": "Apple",
+      "unit": "6 pcs",
       "price": 0.15,
       "currency": "EUR"
     },
     {
       "id": "9780201379631",
-      "name": "Milk (6 x 1l)",
+      "name": "Milk",
+      "unit": "6 x 1l",
       "price": 0.25,
       "currency": "EUR"
     },
     {
       "id": "9780201379648",
-      "name": "Potato (250gr)",
+      "name": "Potato",
+      "unit": "250gr",
       "price": 0.10,
       "currency": "EUR"
     }
