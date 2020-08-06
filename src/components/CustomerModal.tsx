@@ -28,7 +28,7 @@ const CustomerModal = ({
         </Form.Group>
         <div className="d-flex justify-content-center mt-3">
           <Button variant="primary" className="c-black">
-            Scan Product
+            <a href="/product">Scan Product</a>
           </Button>
         </div>
         <p className="c-gray d-flex justify-content-center mt-3">

@@ -36,3 +36,8 @@ export interface UserProps {
   fetchUserStatus: string
   fetchUser: (userId: string) => void
 }
+export interface ProductProps {
+  product: ProductData
+  fetchProductStatus: string
+  fetchProduct: (productId: string) => void
+}
