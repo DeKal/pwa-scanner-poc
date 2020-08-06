@@ -1,5 +1,5 @@
 import { User } from './user'
-import { ProductItem } from './product'
+import { ProductItem, ProductData } from './product'
 
 interface History {
   push: (url: string) => void
@@ -22,10 +22,7 @@ export interface CustomerModalProps extends ModalProps {
 }
 
 export interface AddProductModalProps extends ModalProps {
-  name: string
-  price: number
-  currency: string
-  unit: string
+  product: ProductData
   addToCart: (p: ProductItem) => void
 }
 
