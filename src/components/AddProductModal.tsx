@@ -11,6 +11,25 @@ const AddProductModal = ({
 }: AddProductModalProps): ReactElement => {
   const [quantity, setQuantity] = useState(1)
   const { name, unit, price, currency } = product
+
+  const handleQuantityUpdate = (event) => {
+    const fleldVal = event.target.value
+    const quantity = parseInt(fleldVal)
+    if (!isNaN(quantity) && quantity > 0) {
+      setQuantity(quantity)
+    } else {
+      setQuantity(1)
+    }
+  }
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      quantity,
+      total: quantity * price,
+    })
+    handleClose()
+  }
+
   return (
     <Modal show={show} centered>
       <Modal.Body className="pl-4 pr-4">
@@ -39,15 +58,7 @@ const AddProductModal = ({
                 maxLength={10}
                 placeholder="Quantity"
                 defaultValue={quantity}
-                onChange={(event) => {
-                  const fleldVal = event.target.value
-                  const quantity = parseInt(fleldVal)
-                  if (!isNaN(quantity) && quantity > 0) {
-                    setQuantity(quantity)
-                  } else {
-                    setQuantity(1)
-                  }
-                }}
+                onChange={handleQuantityUpdate}
               />
               <InputGroup.Prepend>
                 <InputGroup.Text>{unit}</InputGroup.Text>
@@ -65,19 +76,9 @@ const AddProductModal = ({
 
         <Form.Row className="d-flex justify-content-between justify-content-md-around mt-3">
           <Button variant="secondary" onClick={handleClose}>
-            Scan again
+            Retry Scan
           </Button>
-          <Button
-            variant="primary"
-            onClick={() => {
-              addToCart({
-                ...product,
-                quantity,
-                total: quantity * price,
-              })
-              handleClose()
-            }}
-          >
+          <Button variant="primary" onClick={handleAddToCart}>
             Add to cart
           </Button>
         </Form.Row>
@@ -89,9 +90,6 @@ const AddProductModal = ({
 export default AddProductModal
 AddProductModal.defaultProps = {
   show: false,
-  product: {},
-  addToCart: () => {},
-  handleClose: () => {},
 }
 AddProductModal.propTypes = {
   show: PropTypes.bool,
