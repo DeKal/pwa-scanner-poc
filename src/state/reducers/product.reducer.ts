@@ -21,7 +21,7 @@ export const productReducer = handleActions(
             [product.id]: {
               ...curProduct,
               quantity: curProduct.quantity + product.quantity,
-              total: (curProduct.quantity + product.quantity) * product.price,
+              total: curProduct.total + product.price,
             },
           },
         }
@@ -30,10 +30,7 @@ export const productReducer = handleActions(
         ...state,
         products: {
           ...state.products,
-          [product.id]: {
-            ...product,
-            total: product.quantity * product.price,
-          },
+          [product.id]: product,
         },
       }
     },

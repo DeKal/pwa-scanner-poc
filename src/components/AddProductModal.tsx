@@ -73,6 +73,7 @@ const AddProductModal = ({
               addToCart({
                 ...product,
                 quantity,
+                total: quantity * price,
               })
               handleClose()
             }}

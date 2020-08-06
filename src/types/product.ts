@@ -7,5 +7,6 @@ export interface ProductData {
 }
 
 export interface ProductItem extends ProductData {
+  total: number
   quantity: number
 }
