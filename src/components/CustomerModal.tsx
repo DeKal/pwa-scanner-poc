@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Modal, Button, Form } from 'react-bootstrap'
+import { Modal, Form } from 'react-bootstrap'
 import './modal.scss'
 import { Link } from 'react-router-dom'
 import { CustomerModalProps } from 'types/props'
