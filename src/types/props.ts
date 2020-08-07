@@ -36,3 +36,12 @@ export interface UserProps {
   fetchUserStatus: string
   fetchUser: (userId: string) => void
 }
+export interface ProductProps {
+  currentProduct: ProductData
+  fetchProductStatus: string
+  addToCart: (p: ProductItem) => void
+  fetchProduct: (productId: string) => void
+}
+export interface ProductScanProps {
+  onDetected: (result: string) => void
+}

@@ -1,5 +1,5 @@
 import { User } from './user'
-import { ProductItem } from './product'
+import { ProductItem, ProductData } from './product'
 
 export interface RootState {
   user: UserState
@@ -13,4 +13,6 @@ export interface UserState {
 
 export interface ProductState {
   products: Record<string, ProductItem>
+  currentProduct: ProductData
+  fetchProductStatus: string
 }

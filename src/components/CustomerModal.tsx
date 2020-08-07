@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { Modal, Button, Form } from 'react-bootstrap'
 import './modal.scss'
+import { Link } from 'react-router-dom'
 import { CustomerModalProps } from 'types/props'
 
 const CustomerModal = ({
@@ -28,7 +29,7 @@ const CustomerModal = ({
         </Form.Group>
         <div className="d-flex justify-content-center mt-3">
           <Button variant="primary" className="c-black">
-            Scan Product
+            <Link to="/product">Scan Product</Link>
           </Button>
         </div>
         <p className="c-gray d-flex justify-content-center mt-3">

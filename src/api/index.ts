@@ -7,3 +7,8 @@ const get = (api: string) => {
 export const fetchUser = <T>(userId: string): Promise<AxiosResponse<T>> => {
   return get(`/api/users/${userId}`)
 }
+export const fetchProduct = <T>(
+  barcodeId: string
+): Promise<AxiosResponse<T>> => {
+  return get(`/api/products/${barcodeId}`)
+}
