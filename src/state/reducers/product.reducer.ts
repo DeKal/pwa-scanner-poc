@@ -10,7 +10,7 @@ import {
 } from 'state/actions/product.action'
 
 const initialState: ProductState = {
-  products: {},
+  products: undefined,
   currentProduct: {
     id: '',
     name: '',

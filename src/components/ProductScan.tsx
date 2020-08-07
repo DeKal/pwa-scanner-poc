@@ -45,10 +45,6 @@ const ProductScan = ({
   )
 }
 export default ProductScan
-ProductScan.defaultProps = {
-  currentProduct: {},
-  fetchProduct: () => {},
-}
 ProductScan.propTypes = {
   currentProduct: PropTypes.object,
   fetchProduct: PropTypes.func,
