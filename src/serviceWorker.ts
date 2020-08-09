@@ -19,7 +19,7 @@ const isLocalhost = Boolean(
     )
 )
 
-export function register(): void {
+export function register(reloadContent: (isAvailable: boolean) => void): void {
   if ('serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(
@@ -50,41 +50,47 @@ export function register(): void {
         })
       } else {
         // Is not local host. Just register service worker
-        registerValidSW(swUrl)
+        const shouldReloadPromise = registerValidSW(swUrl)
+        shouldReloadPromise.then(reloadContent)
       }
     })
   }
 }
 
-function registerValidSW(swUrl: string) {
-  navigator.serviceWorker
-    .register(swUrl)
-    .then((registration) => {
-      registration.onupdatefound = () => {
-        const installingWorker = registration.installing
-        if (installingWorker) {
-          installingWorker.onstatechange = () => {
-            if (installingWorker.state === 'installed') {
-              if (navigator.serviceWorker.controller) {
-                // At this point, the old content will have been purged and
-                // the fresh content will have been added to the cache.
-                // It's the perfect time to display a 'New content is
-                // available; please refresh.' message in your web app.
-                console.log('New content is available; please refresh.')
-              } else {
-                // At this point, everything has been precached.
-                // It's the perfect time to display a
-                // 'Content is cached for offline use.' message.
-                console.log('Content is cached for offline use.')
+function registerValidSW(swUrl: string): Promise<boolean | void> {
+  return new Promise((resolve) => {
+    navigator.serviceWorker
+      .register(swUrl)
+      .then((registration) => {
+        registration.onupdatefound = () => {
+          const installingWorker = registration.installing
+          if (installingWorker) {
+            installingWorker.onstatechange = () => {
+              if (installingWorker.state === 'installed') {
+                if (navigator.serviceWorker.controller) {
+                  // At this point, the old content will have been purged and
+                  // the fresh content will have been added to the cache.
+                  // It's the perfect time to display a 'New content is
+                  // available; please refresh.' message in your web app.
+                  console.log('New content is available; please refresh.')
+                  resolve(true)
+                } else {
+                  // At this point, everything has been precached.
+                  // It's the perfect time to display a
+                  // 'Content is cached for offline use.' message.
+                  console.log('Content is cached for offline use.')
+                  resolve(false)
+                }
               }
             }
           }
         }
-      }
-    })
-    .catch((error) => {
-      console.error('Error during service worker registration:', error)
-    })
+      })
+      .catch((error) => {
+        console.error('Error during service worker registration:', error)
+        resolve(false)
+      })
+  })
 }
 
 function checkValidServiceWorker(swUrl: string) {
