@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { fetchProduct, addToCart } from 'state/actions/product.action'
+import { removeUserSession } from 'state/actions/home.action'
 import {
   getProduct,
   getFetchProductStatus,
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   fetchProduct,
   addToCart,
+  removeUserSession,
 }
 
 export default connect(

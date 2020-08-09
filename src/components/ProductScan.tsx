@@ -5,14 +5,20 @@ import { ProductProps } from 'types/props'
 import './productScan.scss'
 import AddProductModal from './AddProductModal'
 import { fetchStatuses } from 'utils/state'
+import OrderModal from './OrderModal'
 const ProductScan = ({
   fetchProduct,
   currentProduct,
   fetchProductStatus,
   addToCart,
+  removeUserSession,
+  history,
 }: ProductProps): ReactElement => {
   const [show, setShow] = useState(false)
+  const [showModalOrder, setShowModalOrder] = useState(false)
   const handleClose = () => setShow(false)
+  const handleCloseOrder = () => setShowModalOrder(false)
+  const handleShow = () => setShowModalOrder(true)
   const _onDetected = (result) => {
     if (result) {
       setShow(true)
@@ -26,7 +32,11 @@ const ProductScan = ({
         <p>Scan the barcode of each product</p>
         <BarcodeScanner onDetected={_onDetected} />
         <div className="button__group text-right">
-          <button type="button" className="btn btn-outline-dark">
+          <button
+            type="button"
+            className="btn btn-outline-dark"
+            onClick={handleShow}
+          >
             {' '}
             Checkout{' '}
           </button>
@@ -40,6 +50,12 @@ const ProductScan = ({
           addToCart={addToCart}
           product={currentProduct}
         />
+        <OrderModal
+          show={showModalOrder}
+          handleClose={handleCloseOrder}
+          removeUserSession={removeUserSession}
+          history={history}
+        />
       </div>
     </div>
   )
@@ -48,4 +64,5 @@ export default ProductScan
 ProductScan.propTypes = {
   currentProduct: PropTypes.object,
   fetchProduct: PropTypes.func,
+  removeUserSession: PropTypes.func,
 }
