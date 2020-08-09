@@ -6,7 +6,6 @@ test('renders a Home component correctly', () => {
   const { container } = render(<Home />)
   expect(container).toMatchSnapshot()
 })
-
 test('clicking on a New session button will change route', () => {
   const history = {
     push: jest.fn(),
