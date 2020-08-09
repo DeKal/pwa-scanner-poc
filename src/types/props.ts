@@ -20,6 +20,10 @@ export interface CustomerModalProps extends ModalProps {
   address: string
   status: boolean
 }
+export interface OrderModalProps extends ModalProps {
+  removeUserSession?: () => void
+  history: History
+}
 
 export interface AddProductModalProps extends ModalProps {
   product: ProductData
@@ -41,6 +45,8 @@ export interface ProductProps {
   fetchProductStatus: string
   addToCart: (p: ProductItem) => void
   fetchProduct: (productId: string) => void
+  removeUserSession: () => void
+  history: History
 }
 export interface ProductScanProps {
   onDetected: (result: string) => void
