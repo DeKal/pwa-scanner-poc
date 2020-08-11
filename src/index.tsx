@@ -8,6 +8,7 @@ import * as serviceWorker from 'serviceWorker'
 import { Provider } from 'react-redux'
 import store from 'state'
 import { ToastContainer, toast } from 'react-toastify'
+import ReloadAppToast from 'components/ReloadAppToast'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
+        autoClose={false}
         pauseOnHover
       />
     </Provider>
@@ -27,10 +29,22 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-const reloadContent = (isAvailable: boolean) => {
-  if (isAvailable) {
-    toast('New Update available! Reload the webapp now!')
-  }
+const reloadContent = (serviceWorkerRegistration) => {
+  toast.info(<ReloadAppToast />, {
+    onClose: () => {
+      const registrationWaiting = serviceWorkerRegistration.waiting
+
+      if (registrationWaiting) {
+        registrationWaiting.postMessage({ type: 'SKIP_WAITING' })
+
+        registrationWaiting.addEventListener('statechange', (e) => {
+          if (e.target.state === 'activated') {
+            window.location.reload()
+          }
+        })
+      }
+    },
+  })
 }
 
 serviceWorker.register(reloadContent)
