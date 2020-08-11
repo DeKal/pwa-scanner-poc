@@ -48,6 +48,11 @@ export interface ProductProps {
   removeUserSession: () => void
   history: History
 }
+export interface CartProps {
+  addToCart: (p: ProductItem) => void
+  history: History
+  products: ProductItem[]
+}
 export interface ProductScanProps {
   onDetected: (result: string) => void
 }
