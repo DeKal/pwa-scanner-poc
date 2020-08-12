@@ -5,12 +5,14 @@ import { removeUserSession } from 'state/actions/home.action'
 import {
   getProduct,
   getFetchProductStatus,
+  getProductCartLength,
 } from 'state/selectors/product.selector'
 import ProductScan from 'components/ProductScan'
 
 const mapStateToProps = (state) => ({
   currentProduct: getProduct(state),
   fetchProductStatus: getFetchProductStatus(state),
+  productLength: getProductCartLength(state),
 })
 
 const mapDispatchToProps = {

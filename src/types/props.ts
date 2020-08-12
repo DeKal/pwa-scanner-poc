@@ -47,11 +47,14 @@ export interface ProductProps {
   fetchProduct: (productId: string) => void
   removeUserSession: () => void
   history: History
+  products: ProductItem[]
+  productLength: number
 }
 export interface CartProps {
   addToCart: (p: ProductItem) => void
   history: History
   products: ProductItem[]
+  updateCart: (p: any) => void
 }
 export interface ProductScanProps {
   onDetected: (result: string) => void

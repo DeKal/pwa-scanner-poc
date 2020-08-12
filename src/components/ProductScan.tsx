@@ -14,6 +14,7 @@ const ProductScan = ({
   addToCart,
   removeUserSession,
   history,
+  productLength,
 }: ProductProps): ReactElement => {
   const [show, setShow] = useState(false)
   const [showModalOrder, setShowModalOrder] = useState(false)
@@ -46,7 +47,7 @@ const ProductScan = ({
             role="button"
             className="btn btn-outline-secondary ml-3"
           >
-            Cart 2
+            Cart {productLength}
           </Link>
         </div>
         <AddProductModal
