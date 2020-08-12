@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { ReactElement } from 'react'
 import { CartProps } from 'types/props'
 import { Form, Col, InputGroup, Row, Button } from 'react-bootstrap'
@@ -96,7 +97,9 @@ const CartItem = ({
           >
             Cancel
           </Button>
-          <Button variant="primary">Confirm Order</Button>
+          <Button variant="primary" onClick={() => history.push('/')}>
+            Confirm Order
+          </Button>
         </Col>
       </Row>
     </div>

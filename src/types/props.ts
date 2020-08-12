@@ -1,5 +1,5 @@
 import { User } from './user'
-import { ProductItem, ProductData } from './product'
+import { ProductItem, ProductData, UpdateCart } from './product'
 
 interface History {
   push: (url: string) => void
@@ -54,7 +54,7 @@ export interface CartProps {
   addToCart: (p: ProductItem) => void
   history: History
   products: ProductItem[]
-  updateCart: (p: any) => void
+  updateCart: (p: UpdateCart) => void
 }
 export interface ProductScanProps {
   onDetected: (result: string) => void
