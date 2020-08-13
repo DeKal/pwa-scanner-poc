@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Modal, Button, Form } from 'react-bootstrap'
+import { Modal, Form } from 'react-bootstrap'
 import './modal.scss'
 import { Link } from 'react-router-dom'
 import { CustomerModalProps } from 'types/props'
@@ -28,9 +28,9 @@ const CustomerModal = ({
           <p>{status ? 'Active' : 'Inactive'}</p>
         </Form.Group>
         <div className="d-flex justify-content-center mt-3">
-          <Button variant="primary" className="c-black">
-            <Link to="/product">Scan Product</Link>
-          </Button>
+          <Link to="/product" role="button" className="btn btn-primary">
+            Scan Product
+          </Link>
         </div>
         <p className="c-gray d-flex justify-content-center mt-3">
           Not you? <span onClick={handleClose}>&nbsp;Click here</span>
