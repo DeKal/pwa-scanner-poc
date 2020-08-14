@@ -7,6 +7,7 @@ import {
   fetchProductSuccess,
   fetchProductError,
   addToCart,
+  updateCart,
 } from 'state/actions/product.action'
 
 const initialState: ProductState = {
@@ -35,6 +36,30 @@ export const productReducer = handleActions(
               ...curProduct,
               quantity: curProduct.quantity + product.quantity,
               total: curProduct.total + product.price,
+            },
+          },
+        }
+      }
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          [product.id]: product,
+        },
+      }
+    },
+    [updateCart]: (state, action) => {
+      const product: ProductItem = action.payload
+      if (state.products[product.id]) {
+        const curProduct = state.products[product.id]
+        return {
+          ...state,
+          products: {
+            ...state.products,
+            [product.id]: {
+              ...curProduct,
+              quantity: product.quantity,
+              total: curProduct.price * product.quantity,
             },
           },
         }

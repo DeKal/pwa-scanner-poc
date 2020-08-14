@@ -6,6 +6,7 @@ import './productScan.scss'
 import AddProductModal from './AddProductModal'
 import { fetchStatuses } from 'utils/state'
 import OrderModal from './OrderModal'
+import { Link } from 'react-router-dom'
 const ProductScan = ({
   fetchProduct,
   currentProduct,
@@ -13,6 +14,7 @@ const ProductScan = ({
   addToCart,
   removeUserSession,
   history,
+  productLength,
 }: ProductProps): ReactElement => {
   const [show, setShow] = useState(false)
   const [showModalOrder, setShowModalOrder] = useState(false)
@@ -40,9 +42,13 @@ const ProductScan = ({
             {' '}
             Checkout{' '}
           </button>
-          <button type="button" className="btn btn-outline-secondary ml-3">
-            Cart 2
-          </button>
+          <Link
+            to="/cart"
+            role="button"
+            className="btn btn-outline-secondary ml-3"
+          >
+            Cart {productLength}
+          </Link>
         </div>
         <AddProductModal
           show={show && fetchProductStatus === fetchStatuses.SUCCESS}

@@ -10,3 +10,7 @@ export interface ProductItem extends ProductData {
   total: number
   quantity: number
 }
+export interface UpdateCart {
+  id: number
+  quantity: number
+}
