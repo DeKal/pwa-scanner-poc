@@ -75,7 +75,7 @@ const CartItem = ({
                   Total
                 </Col>
                 <Col sm={6} xs={6} className="text-right">
-                  {total.toFixed(2)}
+                  {total.toFixed(2)} {products[0].currency}
                 </Col>
               </Row>
             </Col>
