@@ -1,21 +1,20 @@
-/* eslint-disable react/no-unescaped-entities */
 import React, { ReactElement } from 'react'
 import { CartProps } from 'types/props'
+import { ProductItem } from 'types/product'
 import { Form, Col, InputGroup, Row, Button } from 'react-bootstrap'
 const CartItem = ({
   products,
   history,
   updateCart,
 }: CartProps): ReactElement => {
-  const countTotal = (products) => {
-    let sum = 0
-    products.forEach((product) => {
-      sum += product.total
-    })
-    return sum
-  }
-  const handlerQuanityUpdate = (id, quanity) => {
-    const convertQuanity = parseInt(quanity)
+  const sum = (total, current) => current + total
+  const countTotal = (products: ProductItem[]) =>
+    products && products.length > 0
+      ? products.map((product) => product.total).reduce(sum, 0)
+      : 0
+  const total = countTotal(products)
+  const handlerQuanityUpdate = (id, quantity) => {
+    const convertQuanity = parseInt(quantity)
     updateCart({
       quantity: convertQuanity,
       id,
@@ -76,7 +75,7 @@ const CartItem = ({
                   Total
                 </Col>
                 <Col sm={6} xs={6} className="text-right">
-                  {countTotal(products)}
+                  {total.toFixed(2)}
                 </Col>
               </Row>
             </Col>
@@ -84,8 +83,7 @@ const CartItem = ({
         </>
       ) : (
         <p className="text-center font-weight-bold">
-          You don't have products in your cart.Scan products and add them to
-          your cart
+          Scan products and add them to your cart
         </p>
       )}
       <Row>

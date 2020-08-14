@@ -51,7 +51,6 @@ export interface ProductProps {
   productLength: number
 }
 export interface CartProps {
-  addToCart: (p: ProductItem) => void
   history: History
   products: ProductItem[]
   updateCart: (p: UpdateCart) => void
