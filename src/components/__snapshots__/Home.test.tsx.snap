@@ -9,7 +9,7 @@ exports[`renders a Home component correctly 1`] = `
       <img
         alt="logo"
         class="logo mt-5 mb-5"
-        src="/images/logo.jpg"
+        src="logo.jpg"
       />
       <div
         class="mt-3 mb-3"
