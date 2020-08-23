@@ -1,6 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import PropTypes from 'prop-types'
 import CustomerModal from './CustomerModal'
+import Button from 'react-bootstrap/Button'
 import QrScanner from './QrScanner'
 import { UserProps } from 'types/props'
 import { fetchStatuses } from 'utils/state'
@@ -9,6 +10,8 @@ const User = ({
   user,
   fetchUserStatus,
   fetchUser,
+  removeUserSession,
+  history,
 }: UserProps): ReactElement => {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
@@ -27,6 +30,19 @@ const User = ({
           setShow(true)
         }}
       />
+      <Button
+        data-test-id="btn-new-session"
+        className="mt-5 mb-5 mx-auto w-25"
+        variant="outline-dark"
+        size="lg"
+        block
+        onClick={() => {
+          removeUserSession()
+          history.push('/')
+        }}
+      >
+        New session
+      </Button>
       <CustomerModal
         show={show && fetchUserStatus === fetchStatuses.SUCCESS}
         handleClose={handleClose}

@@ -18,6 +18,13 @@ exports[`renders a User component correctly 1`] = `
     >
       {"mode":"environment"}
     </div>
+    <button
+      class="mt-5 mb-5 mx-auto w-25 btn btn-outline-dark btn-block btn-lg"
+      data-test-id="btn-new-session"
+      type="button"
+    >
+      New session
+    </button>
     <div
       class="mockCustomerModal"
     >

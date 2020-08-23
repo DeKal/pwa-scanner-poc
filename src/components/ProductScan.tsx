@@ -33,7 +33,18 @@ const ProductScan = ({
         <h1>Food Saver</h1>
         <p>Scan the barcode of each product</p>
         <BarcodeScanner onDetected={_onDetected} />
-        <div className="button__group text-right">
+        <div className="button__group text-center mt-3">
+          <button
+            type="button"
+            className="btn btn-outline-dark mr-3"
+            onClick={() => {
+              removeUserSession()
+              history.push('/')
+            }}
+          >
+            {' '}
+            New session{' '}
+          </button>
           <button
             type="button"
             className="btn btn-outline-dark"
