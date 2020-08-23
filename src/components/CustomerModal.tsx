@@ -34,7 +34,7 @@ const CustomerModal = ({
         </div>
         <p className="c-gray d-flex justify-content-center mt-3">
           <Link className="text-here">
-            Not you? <span onClick={handleClose}>&nbsp;Click here</span>
+            <span onClick={handleClose}>Not you?&nbsp;Click here</span>
           </Link>
         </p>
       </Modal.Body>
