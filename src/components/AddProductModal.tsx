@@ -33,7 +33,7 @@ const AddProductModal = ({
   return (
     <Modal show={show} centered>
       <Modal.Body className="pl-4 pr-4">
-        <h4 className="text-center mb-4">Scan new product</h4>
+        <h4 className="text-center mb-4">Scan new products</h4>
 
         <Form.Row className="mb-2 justify-content-between">
           <Form.Label className="font-weight-bold">Name:</Form.Label>
