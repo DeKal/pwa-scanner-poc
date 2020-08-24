@@ -32,10 +32,11 @@ const CustomerModal = ({
             Scan Products
           </Link>
         </div>
-        <p className="c-gray d-flex justify-content-center mt-3">
-          <Link className="text-here">
-            <span onClick={handleClose}>Not you?&nbsp;Click here</span>
-          </Link>
+        <p
+          className="c-gray d-flex justify-content-center mt-3"
+          onClick={handleClose}
+        >
+          Not you?&nbsp;Click here
         </p>
       </Modal.Body>
     </Modal>
