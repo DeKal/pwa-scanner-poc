@@ -29,11 +29,14 @@ const CustomerModal = ({
         </Form.Group>
         <div className="d-flex justify-content-center mt-3">
           <Link to="/product" role="button" className="btn btn-primary">
-            Scan Product
+            Scan Products
           </Link>
         </div>
-        <p className="c-gray d-flex justify-content-center mt-3">
-          Not you? <span onClick={handleClose}>&nbsp;Click here</span>
+        <p
+          className="c-gray d-flex justify-content-center mt-3"
+          onClick={handleClose}
+        >
+          Not you? Click here
         </p>
       </Modal.Body>
     </Modal>
