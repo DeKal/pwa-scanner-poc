@@ -36,7 +36,7 @@ const CustomerModal = ({
           className="c-gray d-flex justify-content-center mt-3"
           onClick={handleClose}
         >
-          Not you?&nbsp;Click here
+          Not you? Click here
         </p>
       </Modal.Body>
     </Modal>
