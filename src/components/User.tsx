@@ -1,10 +1,10 @@
 import React, { ReactElement, useState } from 'react'
 import PropTypes from 'prop-types'
 import CustomerModal from './CustomerModal'
-import Button from 'react-bootstrap/Button'
 import QrScanner from './QrScanner'
 import { UserProps } from 'types/props'
 import { fetchStatuses } from 'utils/state'
+import ButtonRemoveSession from './ButtonRemoveSession'
 
 const User = ({
   user,
@@ -16,7 +16,7 @@ const User = ({
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   return (
-    <div>
+    <div className="text-center">
       <h2 className="font-weight-bold text-dark text-center mt-3">
         Foodsavers
       </h2>
@@ -30,19 +30,10 @@ const User = ({
           setShow(true)
         }}
       />
-      <Button
-        data-test-id="btn-new-session"
-        className="mt-5 mb-5 mx-auto w-25"
-        variant="outline-dark"
-        size="lg"
-        block
-        onClick={() => {
-          removeUserSession()
-          history.push('/')
-        }}
-      >
-        New session
-      </Button>
+      <ButtonRemoveSession
+        removeUserSession={removeUserSession}
+        history={history}
+      />
       <CustomerModal
         show={show && fetchUserStatus === fetchStatuses.SUCCESS}
         handleClose={handleClose}

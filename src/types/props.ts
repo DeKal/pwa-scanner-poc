@@ -42,6 +42,10 @@ export interface UserProps {
   fetchUserStatus: string
   fetchUser: (userId: string) => void
 }
+export interface RemoveSession {
+  removeUserSession: () => void
+  history: History
+}
 export interface ProductProps {
   currentProduct: ProductData
   fetchProductStatus: string

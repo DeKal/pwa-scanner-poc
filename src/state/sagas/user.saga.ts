@@ -6,7 +6,6 @@ import {
   fetchUserSuccess,
   fetchUserError,
 } from 'state/actions/user.action'
-
 function* fetchUserEffect(action) {
   try {
     yield put(fetchUserRequest())
