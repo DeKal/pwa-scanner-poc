@@ -8,21 +8,16 @@ exports[`renders a Home component correctly 1`] = `
     <div>
       <img
         alt="logo"
-        class="logo mt-5 mb-5"
-        src="logo.jpg"
+        class="logo mt-5 "
+        src="scanandgo.png"
       />
       <div
-        class="mt-3 mb-3"
+        class="mb-3"
       >
-        <h5
-          class="mb-2"
-        >
-          Welcome to
-        </h5>
         <h1
           class="font-weight-bold text-dark"
         >
-          Foodsavers
+          Scan & Go
         </h1>
       </div>
     </div>

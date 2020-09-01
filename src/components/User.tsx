@@ -21,7 +21,7 @@ const User = ({
         Foodsavers
       </h2>
       <h5 className="text-center mt-3 mb-3 pl-3 pr-3">
-        Scan the QR code of the product for adding to cart
+        Scan the QR Code on your customer ID card.
       </h5>
       <QrScanner
         mode="environment"

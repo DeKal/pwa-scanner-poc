@@ -22,7 +22,7 @@ const CartItem = ({
   }
   return (
     <div className="container">
-      <h3 className="text-center mt-3 mb-4">Your Order</h3>
+      <h3 className="text-center mt-3 mb-4">Current Order</h3>
       {products.length > 0 ? (
         <>
           <Row>
