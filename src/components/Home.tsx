@@ -1,9 +1,9 @@
 import React, { ReactElement } from 'react'
 import PropTypes from 'prop-types'
 import 'components/Home.scss'
+import Button from 'react-bootstrap/Button'
 import { HomeProps } from 'types/props'
 import logo from 'assets/scanandgo.png'
-import ButtonRemoveSession from './ButtonRemoveSession'
 
 const Home = ({ history, removeUserSession }: HomeProps): ReactElement => {
   return (
@@ -16,10 +16,19 @@ const Home = ({ history, removeUserSession }: HomeProps): ReactElement => {
         </div>
       </div>
       <div className="mb-4">
-        <ButtonRemoveSession
-          removeUserSession={removeUserSession}
-          history={history}
-        />
+        <Button
+          data-test-id="btn-new-session"
+          className="mt-5 mb-5"
+          variant="outline-dark"
+          size="lg"
+          block
+          onClick={() => {
+            removeUserSession()
+            history.push('/user')
+          }}
+        >
+          New session
+        </Button>
       </div>
     </div>
   )
