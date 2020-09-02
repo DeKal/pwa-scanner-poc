@@ -4,16 +4,19 @@ import CustomerModal from './CustomerModal'
 import QrScanner from './QrScanner'
 import { UserProps } from 'types/props'
 import { fetchStatuses } from 'utils/state'
+import ButtonRemoveSession from './ButtonRemoveSession'
 
 const User = ({
   user,
   fetchUserStatus,
   fetchUser,
+  removeUserSession,
+  history,
 }: UserProps): ReactElement => {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   return (
-    <div>
+    <div className="text-center">
       <h2 className="font-weight-bold text-dark text-center mt-3">
         Foodsavers
       </h2>
@@ -26,6 +29,10 @@ const User = ({
           fetchUser(qrCode)
           setShow(true)
         }}
+      />
+      <ButtonRemoveSession
+        removeUserSession={removeUserSession}
+        history={history}
       />
       <CustomerModal
         show={show && fetchUserStatus === fetchStatuses.SUCCESS}

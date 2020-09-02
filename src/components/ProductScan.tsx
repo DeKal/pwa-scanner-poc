@@ -7,6 +7,7 @@ import AddProductModal from './AddProductModal'
 import { fetchStatuses } from 'utils/state'
 import OrderModal from './OrderModal'
 import { Link } from 'react-router-dom'
+import ButtonRemoveSession from './ButtonRemoveSession'
 const ProductScan = ({
   fetchProduct,
   currentProduct,
@@ -33,7 +34,11 @@ const ProductScan = ({
         <h1>Food Saver</h1>
         <p>Scan the barcode of each product</p>
         <BarcodeScanner onDetected={_onDetected} />
-        <div className="button__group text-right">
+        <div className="button__group text-center mt-3">
+          <ButtonRemoveSession
+            removeUserSession={removeUserSession}
+            history={history}
+          />
           <button
             type="button"
             className="btn btn-outline-dark"

@@ -37,8 +37,14 @@ export interface QrScannerProps {
 
 export interface UserProps {
   user: User
+  removeUserSession: () => void
+  history: History
   fetchUserStatus: string
   fetchUser: (userId: string) => void
+}
+export interface RemoveSession {
+  removeUserSession: () => void
+  history: History
 }
 export interface ProductProps {
   currentProduct: ProductData

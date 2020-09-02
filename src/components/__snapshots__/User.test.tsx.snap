@@ -2,7 +2,9 @@
 
 exports[`renders a User component correctly 1`] = `
 <div>
-  <div>
+  <div
+    class="text-center"
+  >
     <h2
       class="font-weight-bold text-dark text-center mt-3"
     >
@@ -18,6 +20,13 @@ exports[`renders a User component correctly 1`] = `
     >
       {"mode":"environment"}
     </div>
+    <button
+      class="btn btn-outline-dark mr-3"
+      data-test-id="btn-new-session"
+      type="button"
+    >
+      New session
+    </button>
     <div
       class="mockCustomerModal"
     >
